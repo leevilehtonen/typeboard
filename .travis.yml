@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "node"
+deploy:
+  provider: heroku
+  api_key:
+    secure: nhOUXzNILhHc1O+KNh6fkw6gKS6wMfjxMA4MxkwL/Lm4/iA2TZFm/ig2zC8+LXR0jYtsGydemIXEBCjTskOXOR14nv6xt8V3sA82r+P3H5mN9HWu6G9vJimpFJJeLKLtlW1zL/NQilZRRmfnmtuA5T1V48+14Leb5mnR0WzqW19eXelwUWF1RMhXBgUDIrp5A3BTE4PrvVTOtPxOCaEpdPThVkpqRp3OKXtVmGSOS1YkYpWThsWJSKvdVQStM3YcmzIYm070PXr1k39zZKzeX8I3mBEdjGqfsQCF6WRvrkkm7TZX2zm7IFv5sp5OtIMw2bM0UfAp4Mc6kvxVXdS1kou1dJi10CjdKpgYOebUb3ZBob8IIywLCHqzCX211at06tY86qVwmNyh8DPSkml9ZJ+7tWC/+KWP+YaH/QBGKamToU1yUtRWjuriQQ/i9adGbBoYpsuYKWW+A9iQHeokeG5Swjh6q752X69S/e4U5ZGbVC0Kv/RfrS+BX+lFUvbl6HRfVVpL8L5+KU6X9g3DDzB3j9eNO3geU88fIJf5PrTOxJNNuahp/ul95Ys4hAJ+CAT4aOqi3/4GORDVMalgXM9YwDK/vNWUljaPWt8bCuOHgBLQzePzVyr3/G3t2I1TfzRsmtLdwqXzeIkE86iR0wLs36cck1rOwlRZ17Q6zWw=
+  app: typeboard-backend
+  on:
+    repo: leevilehtonen/typeboard-backend
