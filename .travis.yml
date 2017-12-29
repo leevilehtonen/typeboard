@@ -1,8 +1,13 @@
 language: node_js
 node_js:
   - "node"
+cache:
+  directories:
+    - "node_modules"
 before_deploy:
   - npm run build
+after_deploy:
+  - npm prune --production
 deploy:
   provider: heroku
   skip_cleanup: true
