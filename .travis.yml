@@ -6,7 +6,6 @@ cache:
     - "node_modules"
 before_deploy:
   - npm run build
-  - rm database.db
 after_deploy:
   - npm prune --production
 deploy:
