@@ -13,7 +13,7 @@ function getConnectionOptions(isProductionDataBase: boolean): ConnectionOptions 
             database: postgresUrl.database,
             synchronize: true,
             logging: true,
-            entities: ["dist/entity/*.js"],
+            entities: [__dirname + "/entity/*.js"],
         };
     } else {
         return {
@@ -21,9 +21,7 @@ function getConnectionOptions(isProductionDataBase: boolean): ConnectionOptions 
             database: "database.db",
             logging: true,
             synchronize: true,
-            entities: [
-                "dist/entity/*.js",
-            ],
+            entities: [__dirname + "/entity/*.@(js|ts)"],
         };
     }
 }
