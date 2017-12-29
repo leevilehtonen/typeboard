@@ -7,9 +7,9 @@ cache:
 before_deploy:
   - npm run build
   - rm database.db
-  - tree
 after_deploy:
   - npm prune --production
+  - tree
 deploy:
   provider: heroku
   skip_cleanup: true
