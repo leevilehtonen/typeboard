@@ -12,14 +12,14 @@ function getConnectionOptions(isProductionDataBase: boolean): ConnectionOptions 
             password: postgresUrl.password,
             database: postgresUrl.database,
             synchronize: true,
-            logging: true,
+            logging: false,
             entities: [__dirname + "/entity/*.js"],
         };
     } else {
         return {
             type: "sqlite",
-            database: "database.db",
-            logging: true,
+            database: process.env.NODE_ENV === "test" ? "test.db" : "database.db",
+            logging: false,
             synchronize: true,
             entities: [__dirname + "/entity/*.@(js|ts)"],
         };

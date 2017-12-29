@@ -11,6 +11,7 @@ routingUseContainer(Container);
 
 const app = createExpressServer({
     routePrefix: "/api",
+    development: false,
     controllers: [__dirname + "/controller/*.@(js|ts)"],
 });
 

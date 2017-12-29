@@ -9,7 +9,6 @@ before_deploy:
   - rm database.db
 after_deploy:
   - npm prune --production
-  - tree
 deploy:
   provider: heroku
   skip_cleanup: true
