@@ -8,6 +8,8 @@ cache:
     - "node_modules"
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 before_deploy:
   - npm run build
 after_deploy:
