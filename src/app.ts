@@ -11,13 +11,10 @@ routingUseContainer(Container);
 
 const app = createExpressServer({
     routePrefix: "/api",
-    development: false,
     controllers: [__dirname + "/controller/*.@(js|ts)"],
 });
 
-createConnection(connectionOptions).then((connection) => {
-    app.emit("appStarted");
-});
+createConnection(connectionOptions);
 
 app.listen(process.env.PORT || 3000);
 
