@@ -2,7 +2,7 @@ import * as assert from "assert";
 import * as fs from "fs";
 import * as request from "supertest";
 import { Container } from "typedi";
-import * as app from "../src/app";
+import { app } from "../src/app";
 import { UserService } from "../src/service/UserService";
 
 function createMockdata(): Promise<any> {
@@ -16,11 +16,11 @@ beforeAll((done) => {
   if (fs.existsSync("./test.db")) {
     fs.unlinkSync("./test.db");
   }
-  setTimeout(() => {
+  app.on("connected", () => {
     createMockdata().then(() => {
       done();
     });
-  }, 1000);
+  });
 });
 
 afterAll(() => {

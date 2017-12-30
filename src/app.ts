@@ -9,13 +9,13 @@ import { connectionOptions } from "./config";
 ormUseContainer(Container);
 routingUseContainer(Container);
 
-const app = createExpressServer({
+export const app = createExpressServer({
     routePrefix: "/api",
     controllers: [__dirname + "/controller/*.@(js|ts)"],
 });
 
-createConnection(connectionOptions);
+createConnection(connectionOptions).then(() => {
+    app.emit("connected");
+});
 
 app.listen(process.env.PORT || 3000);
-
-module.exports = app;
