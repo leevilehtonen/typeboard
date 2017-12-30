@@ -13,7 +13,9 @@ export class UserService {
     private userRepository: Repository<User>;
 
     public async getOne(id: number): Promise<User> {
-        const user =  this.userRepository.findOneById(id);
+
+        // Throw custom error in case the user is not found
+        const user = await this.userRepository.findOneById(id);
         if (!user) {throw new NotFoundError("User not found"); }
         return user;
     }
@@ -34,8 +36,6 @@ export class UserService {
             // Use query builder to create insert query returning the id and finding then just created object
             return await this.userRepository.createQueryBuilder()
                 .insert().into(User).values(user).returning("id").execute().then((res) => {
-                    // tslint:disable-next-line:no-console
-                    console.log(res[0]);
                     return this.getOne(res[0].id);
                 }).catch((err) => {
                     throw new BadRequestError("Error in the request");
