@@ -12,7 +12,7 @@ function getConnectionOptions(isProductionDataBase: boolean): ConnectionOptions 
             password: postgresUrl.password,
             database: postgresUrl.database,
             synchronize: true,
-            logging: false,
+            logging: true,
             entities: [__dirname + "/entity/*.@(js|ts)"],
         };
     } else {

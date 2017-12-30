@@ -35,6 +35,8 @@ export class UserService {
             return await this.userRepository.createQueryBuilder()
                 .insert().into(User).values(user).returning("id").execute().then((id) => {
                     return this.getOne(id);
+                }).catch((err) => {
+                    throw new BadRequestError("Error in the request");
                 });
         } else {
 
@@ -43,6 +45,8 @@ export class UserService {
                 return this.userRepository.query("SELECT last_insert_rowid() as id;");
             }).then((result) => {
                 return this.getOne(result[0].id);
+            }).catch((err) => {
+                throw new BadRequestError("Error in the request");
             });
         }
     }
