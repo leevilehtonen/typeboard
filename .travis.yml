@@ -1,9 +1,13 @@
 language: node_js
 node_js:
   - "node"
+services:
+  - postgresql
 cache:
   directories:
     - "node_modules"
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
 before_deploy:
   - npm run build
 after_deploy:
