@@ -34,6 +34,8 @@ export class UserService {
             // Use query builder to create insert query returning the id and finding then just created object
             return await this.userRepository.createQueryBuilder()
                 .insert().into(User).values(user).returning("id").execute().then((id) => {
+                    // tslint:disable-next-line:no-console
+                    console.log(id);
                     return this.getOne(id);
                 }).catch((err) => {
                     throw new BadRequestError("Error in the request");
