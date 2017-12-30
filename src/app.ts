@@ -14,7 +14,7 @@ export const app = createExpressServer({
     controllers: [__dirname + "/controller/*.@(js|ts)"],
 });
 
-createConnection(connectionOptions).then(() => {
+createConnection(connectionOptions).then((connection) => {
     app.emit("connected");
 });
 
